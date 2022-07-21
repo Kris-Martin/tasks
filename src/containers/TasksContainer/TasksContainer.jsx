@@ -20,6 +20,10 @@ const TasksContainer = () => {
         setTasks(updated);
     };
 
+    const clearAllTasks = () => {
+        setTasks([]);
+    };
+
     const addTask = (e) => {
         e.preventDefault();
         let task = document.getElementById("input").value;
@@ -44,7 +48,10 @@ const TasksContainer = () => {
 
     return (
         <>
-            <p className={styles.taskCount}>You have {tasks.length} tasks...</p>
+            <div className={styles.taskCount}>
+                <p>You have {tasks.length} tasks...</p>
+                <button onClick={clearAllTasks}>clear all tasks</button>
+            </div>
             <Form addTask={addTask} />
             <div className={styles.TasksContainer}>
                 {isMounted &&

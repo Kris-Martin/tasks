@@ -3,6 +3,27 @@
     width: 80%;
     text-align: left;
     font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+
+    & > button {
+        border: none;
+        font-size: 1.2rem;
+        background-color: black;
+        color: lightgreen;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(144, 238, 144, 0.5);
+            color: white;
+            text-decoration: underline;
+        }
+
+        &:active {
+            background-color: rgb(255, 0, 0, 0.5);
+            font-weight: bold;
+        }
+    }
 }
 
 .TasksContainer {
