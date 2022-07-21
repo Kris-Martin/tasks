@@ -1,22 +1,65 @@
 import styles from "./TasksContainer.module.scss";
 import TaskCard from "../../components/TaskCard";
+import Form from "../../components/Form";
 import { taskData } from "./taskData.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const TasksContainer = () => {
     const [tasks, setTasks] = useState(taskData);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+        return () => {
+            setIsMounted(false);
+        };
+    }, []);
 
     const deleteTask = (taskToRemove, tasks) => {
-        let updated = tasks.filter((task) => task.task !== taskToRemove);
+        let updated = tasks.filter((t) => t !== taskToRemove);
         setTasks(updated);
     };
-    console.log(tasks);
+
+    const addTask = (e) => {
+        e.preventDefault();
+        let task = document.getElementById("input").value;
+        let priority = document.getElementById("priority").value;
+        let updated = [...tasks, ...[{ task, priority }]];
+        setTasks(updated);
+        document.getElementById("taskForm").reset();
+    };
+
+    const sortTasks = (tasks) => {
+        const order = new Map([
+            ["very high", 1],
+            ["high", 2],
+            ["medium", 3],
+            ["low", 4],
+        ]);
+        let sorted = tasks.sort(
+            (a, b) => order.get(a.priority) - order.get(b.priority),
+        );
+        return sorted;
+    };
+
     return (
-        <div className={styles.TasksContainer}>
-            <TaskCard tasks={tasks} deleteTask={deleteTask} />
-            {/* <button className={styles.Buttons}>Add Task</button>
-            <button className={styles.Buttons}>Clear All</button> */}
-        </div>
+        <>
+            <p className={styles.taskCount}>You have {tasks.length} tasks...</p>
+            <Form addTask={addTask} />
+            <div className={styles.TasksContainer}>
+                {isMounted &&
+                    sortTasks(tasks).map((t, i) => {
+                        return (
+                            <TaskCard
+                                task={t}
+                                deleteTask={deleteTask}
+                                key={i}
+                                tasks={tasks}
+                            />
+                        );
+                    })}
+            </div>
+        </>
     );
 };
 

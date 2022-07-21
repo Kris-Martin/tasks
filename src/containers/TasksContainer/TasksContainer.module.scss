@@ -1,32 +1,19 @@
+.taskCount {
+    margin: 0 auto;
+    width: 80%;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
 .TasksContainer {
     width: 80%;
-    height: 80vh;
+    height: 78vh;
     margin: 0 auto;
+    margin-bottom: 1em;
     border: 5px solid lightgreen;
     background-color: black;
     color: lightgreen;
     font-size: 1rem;
     padding: 1em;
     overflow: scroll;
-}
-
-.Buttons {
-    width: 50%;
-    border: 1px solid lightgreen;
-    background-color: black;
-    color: lightgreen;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 0.5em 0;
-    cursor: pointer;
-
-    &:hover {
-        border-color: white;
-        color: white;
-        background-color: rgb(144, 238, 144, 0.5);
-    }
-
-    &:active {
-        background-color: lightgreen;
-    }
 }
