@@ -1,27 +1,24 @@
 import styles from "./TaskCard.module.scss";
 
-const TaskCard = ({ tasks, deleteTask }) => {
-    const handleDeleteTask = (event) => {
-        const taskToRemove = event.target.nextSibling.innerText;
-        console.log(taskToRemove);
+const TaskCard = ({ task, deleteTask, tasks }) => {
+    const handleDeleteTask = () => {
+        const taskToRemove = task;
         deleteTask(taskToRemove, tasks);
     };
 
-    return tasks.map((task, i) => {
-        const currentClass = updateClass(task.priority);
-        return (
-            <div className={currentClass} key={i}>
-                <button
-                    className={styles.TaskCard__button}
-                    onClick={handleDeleteTask}
-                >
-                    x
-                </button>
-                <h2>{task.task}</h2>
-                <p>{`Priority: ${task.priority}`}</p>
-            </div>
-        );
-    });
+    const currentClass = updateClass(task.priority);
+    return (
+        <div className={currentClass}>
+            <button
+                className={styles.TaskCard__button}
+                onClick={handleDeleteTask}
+            >
+                x
+            </button>
+            <h2>{task.task}</h2>
+            <p>{`Priority: ${task.priority}`}</p>
+        </div>
+    );
 
     function updateClass(priority) {
         let classes = styles.TaskCard;
