@@ -1,6 +1,20 @@
 # Tasks
 
+## Description
+
 This is a quick little project to learn about React. It makes use of state and conditional formatting.
+
+![A screenshot of the Tasks UI](./Tasks.png)
+
+## Instructions
+
+The app loads with a set of dummy tasks.
+
+-   You can delete tasks using the x button or add using the + button.
+-   Tasks are sorted and assigned a colour based on their priority.
+-   You can assign the priority of a task using the drop down menu when adding a task.
+
+**Note**: The app does not yet have persistent data storage so on reload the app will rest to the initial dummy tasks.
 
 You can view and interact with the project at:
 https://kris-martin.github.io/tasks/
