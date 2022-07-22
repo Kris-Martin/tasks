@@ -14,7 +14,7 @@ The app loads with a set of dummy tasks.
 -   Tasks are sorted and assigned a colour based on their priority.
 -   You can assign the priority of a task using the drop down menu when adding a task.
 
-**Note**: The app does not yet have persistent data storage so on reload the app will rest to the initial dummy tasks.
+**Note**: The app does not yet have persistent data storage so on reload the app will reset to the initial dummy tasks.
 
 You can view and interact with the project at:
 https://kris-martin.github.io/tasks/
