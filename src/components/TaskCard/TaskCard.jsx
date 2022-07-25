@@ -1,9 +1,9 @@
 import styles from "./TaskCard.module.scss";
 
-const TaskCard = ({ task, deleteTask, tasks }) => {
+const TaskCard = ({ task, deleteTask }) => {
     const handleDeleteTask = () => {
         const taskToRemove = task;
-        deleteTask(taskToRemove, tasks);
+        deleteTask(taskToRemove);
     };
 
     const currentClass = updateClass(task.priority);

@@ -15,8 +15,8 @@ const TasksContainer = () => {
         };
     }, []);
 
-    const deleteTask = (taskToRemove, tasks) => {
-        let updated = tasks.filter((t) => t !== taskToRemove);
+    const deleteTask = (taskToRemove) => {
+        const updated = tasks.filter((t) => t.task !== taskToRemove.task);
         setTasks(updated);
     };
 
@@ -61,7 +61,6 @@ const TasksContainer = () => {
                                 task={t}
                                 deleteTask={deleteTask}
                                 key={i}
-                                tasks={tasks}
                             />
                         );
                     })}
