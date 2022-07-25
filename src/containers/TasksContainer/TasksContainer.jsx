@@ -27,6 +27,7 @@ const TasksContainer = () => {
     const addTask = (e) => {
         e.preventDefault();
         const task = document.getElementById("input").value;
+        if (task === "") alert("Please enter a task");
         const priority = document.getElementById("priority").value;
         const updated = [...tasks, ...[{ task, priority }]];
         setTasks(updated);
