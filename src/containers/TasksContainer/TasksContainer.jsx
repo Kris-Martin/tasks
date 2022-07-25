@@ -26,9 +26,9 @@ const TasksContainer = () => {
 
     const addTask = (e) => {
         e.preventDefault();
-        let task = document.getElementById("input").value;
-        let priority = document.getElementById("priority").value;
-        let updated = [...tasks, ...[{ task, priority }]];
+        const task = document.getElementById("input").value;
+        const priority = document.getElementById("priority").value;
+        const updated = [...tasks, ...[{ task, priority }]];
         setTasks(updated);
         document.getElementById("taskForm").reset();
     };
@@ -40,7 +40,7 @@ const TasksContainer = () => {
             ["medium", 3],
             ["low", 4],
         ]);
-        let sorted = tasks.sort(
+        const sorted = tasks.sort(
             (a, b) => order.get(a.priority) - order.get(b.priority),
         );
         return sorted;
